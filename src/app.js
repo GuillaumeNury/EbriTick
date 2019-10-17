@@ -1,10 +1,13 @@
 import {
+  onBpmUpdate,
+  onDurationUpdate,
   onPlayButtonClick,
   onStopButtonClick,
 } from './chart-events-manager.js';
 import {
   setArcVisibility,
   setBigText,
+  setFormButtonVisibility,
   setInnerArcVisibility,
   setPlayButtonVisibility,
   setSmallText,
@@ -19,8 +22,8 @@ const metronome = new Audio('/media/metronome.mp3');
 const gong = new Audio('/media/gong.mp3');
 
 function run() {
-  const duration = 5 * 1 * 1000;
-  const beatsPerMinut = 60;
+  let duration = 1 * 60 * 1000;
+  let beatsPerMinut = 60;
   const beatsPerMeasure = 4;
 
   reset(duration, beatsPerMinut, beatsPerMeasure);
@@ -37,6 +40,14 @@ function run() {
 
     timer.stop();
     timer = null;
+    reset(duration, beatsPerMinut, beatsPerMeasure);
+  });
+  onBpmUpdate(delta => {
+    beatsPerMinut += delta;
+    reset(duration, beatsPerMinut, beatsPerMeasure);
+  });
+  onDurationUpdate(delta => {
+    duration += delta;
     reset(duration, beatsPerMinut, beatsPerMeasure);
   });
 }
@@ -69,6 +80,7 @@ function setVisibility(isRunning) {
   setInnerArcVisibility(isRunning);
   setStopButtonVisibility(isRunning);
   setPlayButtonVisibility(!isRunning);
+  setFormButtonVisibility(!isRunning);
 }
 
 run();

@@ -11,6 +11,7 @@ body {
   margin: 0;
   text-align: center;
   font-family: 'Source Sans Pro', sans-serif;
+  user-select: none;
 }
 .chart {
   width: 95vh;

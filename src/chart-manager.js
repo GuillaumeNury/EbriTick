@@ -1,6 +1,14 @@
 import {
   bigText,
+  bpmLessButton,
+  bpmPlusButton,
   chart,
+  durationLessHour,
+  durationLessMinut,
+  durationLessSecond,
+  durationPlusHour,
+  durationPlusMinut,
+  durationPlusSecond,
   innerArc,
   innerArcFn,
   outerArc,
@@ -33,6 +41,17 @@ export function setPlayButtonVisibility(isVisible) {
 
 export function setStopButtonVisibility(isVisible) {
   setVisibility(stopButton, isVisible);
+}
+
+export function setFormButtonVisibility(isVisible) {
+  setVisibility(bpmPlusButton, isVisible);
+  setVisibility(bpmLessButton, isVisible);
+  setVisibility(durationPlusHour, isVisible);
+  setVisibility(durationPlusMinut, isVisible);
+  setVisibility(durationPlusSecond, isVisible);
+  setVisibility(durationLessHour, isVisible);
+  setVisibility(durationLessMinut, isVisible);
+  setVisibility(durationLessSecond, isVisible);
 }
 
 export function updateInnerArc(newValue, bars) {

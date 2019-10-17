@@ -37,33 +37,41 @@ export const bigText = center
   .append('text')
   .attr('dy', '-50px')
   .style('text-anchor', 'middle')
-  .style('font-size', '50px')
+  .style('font-size', '70px')
   .style('fill', '#354935')
   .text('');
 
 export const smallText = center
   .append('text')
   .style('text-anchor', 'middle')
-  .attr('dy', '20px')
+  .style('font-size', '30px')
+  .attr('dy', '30px')
   .style('fill', '#354935')
   .text('');
 
-export const playButton = center
-  .append('text')
-  .style('text-anchor', 'middle')
-  .attr('class', 'material-icons')
-  .attr('font-size', '30px')
-  .style('cursor', 'pointer')
-  .style('fill', '#354935')
-  .attr('dy', '100px')
-  .text('play_arrow');
+function addButton(icon, dx, dy, size) {
+  return center
+    .append('text')
+    .style('text-anchor', 'middle')
+    .attr('class', 'material-icons')
+    .style('font-size', `${size}px`)
+    .style('cursor', 'pointer')
+    .style('fill', '#354935')
+    .attr('dx', `${dx}px`)
+    .attr('dy', `${dy}px`)
+    .text(icon);
+}
 
-export const stopButton = center
-  .append('text')
-  .style('text-anchor', 'middle')
-  .attr('class', 'material-icons')
-  .attr('font-size', '30px')
-  .style('cursor', 'pointer')
-  .style('fill', '#354935')
-  .attr('dy', '100px')
-  .text('stop');
+export const playButton = addButton('play_arrow', 0, 100, 60);
+export const stopButton = addButton('stop', 0, 100, 60);
+
+export const bpmPlusButton = addButton('keyboard_arrow_up', -85, -110, 60);
+export const bpmLessButton = addButton('keyboard_arrow_down', -85, 20, 60);
+
+export const durationPlusHour = addButton('keyboard_arrow_up', -37, 8, 25);
+export const durationPlusMinut = addButton('keyboard_arrow_up', -15, 8, 25);
+export const durationPlusSecond = addButton('keyboard_arrow_up', 7, 8, 25);
+
+export const durationLessHour = addButton('keyboard_arrow_down', -37, 35, 25);
+export const durationLessMinut = addButton('keyboard_arrow_down', -15, 35, 25);
+export const durationLessSecond = addButton('keyboard_arrow_down', 7, 35, 25);
