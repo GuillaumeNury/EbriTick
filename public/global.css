@@ -1,0 +1,40 @@
+/*
+// http://paletton.com/#uid=12P0u0kllll-Zv9rvqffbgr90bx
+.color-primary-0 { color: #2D882D }
+.color-primary-1 { color: #00C700 }
+.color-primary-2 { color: #18A718 }
+.color-primary-3 { color: #376937 }
+.color-primary-4 { color: #354935 
+*/
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  user-select: none;
+}
+.chart {
+  width: 95vh;
+  height: 95vh;
+  margin: 1vh;
+}
+@media screen and (max-width: 95vh) {
+  .chart {
+    width: 95vw;
+    height: 95vw;
+    margin: 1vw;
+  }
+}
+
+text {
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: #354935;
+}
+.duration {
+  font-size: 9px;
+}
+.bpm {
+  font-weight: bold;
+  font-size: 14px;
+}
