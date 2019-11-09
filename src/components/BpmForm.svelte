@@ -20,7 +20,7 @@
 
 <text
   x="85"
-  y="35"
+  y="35.75"
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(1)}
@@ -30,7 +30,7 @@
 
 <text
   x="15"
-  y="35"
+  y="35.75"
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(-1)}

@@ -3,6 +3,11 @@
   import { MS_PER_HOUR, MS_PER_MINUTE, MS_PER_SECOND } from '../lib/duration';
   import { longpress } from '../actions/longpress';
 
+  const firstButtonX = 31;
+  const firstButtonY = 51;
+  const xOffset = 11.3;
+  const yOffset = 15;
+
   const _dispatch = createEventDispatcher();
 
   function dispatch(deltaDuration) {
@@ -19,8 +24,8 @@
 </style>
 
 <text
-  x="29"
-  y="49"
+  x={firstButtonX + xOffset * 0}
+  y={firstButtonY}
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(MS_PER_HOUR)}
@@ -28,8 +33,8 @@
   keyboard_arrow_up
 </text>
 <text
-  x="41.3"
-  y="49"
+  x={firstButtonX + xOffset * 1}
+  y={firstButtonY}
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(MS_PER_MINUTE)}
@@ -37,8 +42,8 @@
   keyboard_arrow_up
 </text>
 <text
-  x="53.6"
-  y="49"
+  x={firstButtonX + xOffset * 2}
+  y={firstButtonY}
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(MS_PER_SECOND)}
@@ -47,8 +52,8 @@
 </text>
 
 <text
-  x="29"
-  y="66"
+  x={firstButtonX + xOffset * 0}
+  y={firstButtonY + yOffset}
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(-1 * MS_PER_HOUR)}
@@ -56,8 +61,8 @@
   keyboard_arrow_down
 </text>
 <text
-  x="41.3"
-  y="66"
+  x={firstButtonX + xOffset * 1}
+  y={firstButtonY + yOffset}
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(-1 * MS_PER_MINUTE)}
@@ -65,8 +70,8 @@
   keyboard_arrow_down
 </text>
 <text
-  x="53.6"
-  y="66"
+  x={firstButtonX + xOffset * 2}
+  y={firstButtonY + yOffset}
   class="button material-icons"
   use:longpress
   on:shortpress={() => dispatch(-1 * MS_PER_SECOND)}

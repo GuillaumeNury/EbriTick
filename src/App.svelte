@@ -3,59 +3,24 @@
   import ActionButton from './components/ActionButton.svelte';
   import BeatIndicator from './components/BeatIndicator.svelte';
   import DurationForm from './components/DurationForm.svelte';
+  import { get } from 'svelte/store';
+
   import BpmForm from './components/BpmForm.svelte';
 
+  import { addBeatsPerMinute, addDuration, reset, start } from './app.js';
   import { formatDuration } from './lib/duration';
-  import { get } from 'svelte/store';
-  import { startSound, startEndSound, stopSound, audioCtx } from './lib/sound';
-
   import {
     beats,
-    beatsOffset,
     beatsPerMeasure,
     beatsPerMinut,
     duration,
     progress,
     progressEnd,
     remaining,
-    resetProgress,
     running,
-    startProgress,
   } from './stores';
 
   $: durationText = formatDuration($remaining);
-
-  let unsubscribe;
-
-  beatsOffset.set(audioCtx.baseLatency);
-
-  function start() {
-    running.set(true);
-    startProgress();
-    unsubscribe = startSound(beats, get(beatsPerMinut));
-  }
-
-  function reset() {
-    running.set(false);
-    stopSound();
-    resetProgress();
-    unsubscribe();
-  }
-
-  function addDuration(event) {
-    duration.set(Math.max(0, get(duration) + event.detail));
-  }
-
-  function addBeatsPerMinute(event) {
-    beatsPerMinut.set(Math.max(10, get(beatsPerMinut) + event.detail));
-  }
-
-  progressEnd.subscribe(isEnd => {
-    if (isEnd) {
-      stopSound();
-      startEndSound();
-    }
-  });
 </script>
 
 <svg class="chart" viewBox="0 0 100 100">

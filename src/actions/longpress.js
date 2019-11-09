@@ -1,4 +1,4 @@
-const LONG_PRESS_DURATION = 400;
+const LONG_PRESS_DURATION = 200;
 
 /**
  *
@@ -23,10 +23,16 @@ export function longpress(node) {
     }, LONG_PRESS_DURATION);
   }
 
-  function handleMouseUp() {
+  /**
+   *
+   * @param {MouseEvent} event
+   */
+  function handleMouseUp(event) {
     if (!pressed) {
       return;
     }
+
+    event.preventDefault();
 
     pressed = false;
     clearInterval(intervalId);
