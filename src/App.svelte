@@ -16,6 +16,7 @@
     beatsPerMinut,
     duration,
     progress,
+    progressEnd,
     remaining,
     resetProgress,
     running,
@@ -48,6 +49,10 @@
   function addBeatsPerMinute(event) {
     beatsPerMinut.set(Math.max(10, get(beatsPerMinut) + event.detail));
   }
+
+  progressEnd.subscribe(() => {
+    stopSound();
+  });
 </script>
 
 <svg class="chart" viewBox="0 0 100 100">

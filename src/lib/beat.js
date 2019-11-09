@@ -7,7 +7,7 @@ import { MS_PER_MINUTE } from './duration';
  */
 export function getBeat(elapsed, beatsPerMinut) {
   const beatsPerMs = beatsPerMinut / MS_PER_MINUTE;
-  return Math.floor(elapsed * beatsPerMs) % beatsPerMinut;
+  return Math.floor(elapsed * beatsPerMs);
 }
 
 export function getBeats$(progress$, duration, beatsPerMinut) {

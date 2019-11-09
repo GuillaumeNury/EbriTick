@@ -1,4 +1,4 @@
-const LONG_PRESS_DURATION = 500;
+const LONG_PRESS_DURATION = 400;
 
 /**
  *
