@@ -1,6 +1,7 @@
 <script>
   export let duration;
   export let progress;
+  export let progressEnd;
 
   const strokeWidth = 2;
   const radius = 50 - strokeWidth;
@@ -17,4 +18,14 @@
   stroke-width={strokeWidth}
   stroke-dasharray={dashArray}
   transform="rotate(270 50 50)"
-  fill="none" />
+  fill="none">
+  {#if progressEnd}
+    <animate
+      attributeType="XML"
+      attributeName="opacity"
+      values="0;1;1"
+      dur="0.5s"
+      repeatCount="indefinite" />
+    }
+  {/if}
+</circle>

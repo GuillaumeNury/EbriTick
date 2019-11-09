@@ -7,7 +7,7 @@
 
   import { formatDuration } from './lib/duration';
   import { get } from 'svelte/store';
-  import { startSound, stopSound, audioCtx } from './lib/sound';
+  import { startSound, startEndSound, stopSound, audioCtx } from './lib/sound';
 
   import {
     beats,
@@ -50,8 +50,11 @@
     beatsPerMinut.set(Math.max(10, get(beatsPerMinut) + event.detail));
   }
 
-  progressEnd.subscribe(() => {
-    stopSound();
+  progressEnd.subscribe(isEnd => {
+    if (isEnd) {
+      stopSound();
+      startEndSound();
+    }
   });
 </script>
 
@@ -60,8 +63,14 @@
   <text x="50" y="58" class="duration">{durationText}</text>
 
   {#if $running}
-    <Chrono duration={$duration} progress={$progress} />
-    <BeatIndicator beat={$beats} beatsPerMeasure={$beatsPerMeasure} />
+    <Chrono
+      progressEnd={$progressEnd}
+      duration={$duration}
+      progress={$progress} />
+
+    {#if !$progressEnd}
+      <BeatIndicator beat={$beats} beatsPerMeasure={$beatsPerMeasure} />
+    {/if}
 
     <ActionButton on:click={reset} action="stop" />
   {:else}

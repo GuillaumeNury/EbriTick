@@ -18,6 +18,7 @@ function scheduleNote(from) {
 
 export function stopSound() {
   runningOscillators.forEach(osc => osc.stop(0));
+  runningOscillators = [];
 }
 
 export function startSound(beats, bpm) {
@@ -31,4 +32,14 @@ export function startSound(beats, bpm) {
   return beats.subscribe(beat =>
     scheduleNote(startTime + (beat + firstBeatsToCreate) * beatsPerMs),
   );
+}
+
+export function startEndSound() {
+  const startTime = audioCtx.currentTime;
+
+  for (let i = 0; i < 3; i++) {
+    scheduleNote(startTime + i * 1 + 0.0);
+    scheduleNote(startTime + i * 1 + 0.15);
+    scheduleNote(startTime + i * 1 + 0.3);
+  }
 }
