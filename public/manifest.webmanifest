@@ -1,0 +1,22 @@
+{
+  "dir": "ltr",
+  "lang": "en",
+  "name": "EbriTick",
+  "scope": "/",
+  "display": "browser",
+  "start_url": "https://tick.ebrithil.fr/",
+  "short_name": "EbriTick",
+  "theme_color": "transparent",
+  "description": "",
+  "orientation": "any",
+  "background_color": "transparent",
+  "related_applications": "",
+  "prefer_related_applications": "false",
+  "icons": [
+    {
+      "src": "https://tick.ebrithil.fr/favicon.png",
+      "sizes": "128x128"
+    }
+  ],
+  "generated": "true"
+}
