@@ -4,7 +4,10 @@
 .color-primary-1 { color: #00C700 }
 .color-primary-2 { color: #18A718 }
 .color-primary-3 { color: #376937 }
-.color-primary-4 { color: #354935 
+.color-primary-4 { color: #354935 }
+
+Icons
+// https://favicon.io/favicon-generator/?t=Tick&ff=Leckerli+One&fs=70&fc=%23FFFFFF&b=rounded&bc=%232D882D
 */
 
 body {
@@ -13,11 +16,13 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   user-select: none;
 }
+
 .chart {
   width: 95vh;
   height: 95vh;
   margin: 1vh;
 }
+
 @media screen and (max-width: 95vh) {
   .chart {
     width: 95vw;
@@ -31,9 +36,11 @@ text {
   dominant-baseline: central;
   fill: #354935;
 }
+
 .duration {
   font-size: 9px;
 }
+
 .bpm {
   font-weight: bold;
   font-size: 14px;
